@@ -1,0 +1,67 @@
+:root {
+    --dark-green: rgb(49, 119, 2);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: content-box;
+    font-size: 25px;
+}
+
+
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    padding-top: 10vh;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    padding: 2rem 0 1.5rem 0;
+    width: 50%;
+    gap: 2rem;
+    box-shadow: 0px 0px 5px 2px var(--dark-green);
+    border-radius: 0.5rem;
+
+    
+    .inputDivision {
+        width: 80%;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        input {
+            width: 100%;
+            font-size: 1.5rem;
+            box-shadow: 0px 0px 2px 0px var(--dark-green);
+            border: none;
+            border-radius: 0.2rem;
+        }
+
+        label {
+            position: absolute;
+            background-color: white;
+            left: 1rem;
+            top: -1rem;
+        }
+        
+        &:last-child {
+            width: auto;
+            input {
+                padding: 0.2rem 1rem;
+            }
+            
+
+        }
+    }
+
+}

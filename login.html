@@ -3,18 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="login.css">
+    <link rel="stylesheet" href="font.css">
     <title>Welcome</title>
 </head>
 <body>
+    <h1>Please log in to enjoy the world of sound</h1>
     <form class="form">
-        <section class="input">
-            <label for="loginUsername"><span>Username</span></label>
+        <section class="inputDivision">
+            <label for="loginUsername">Username</label>
             <input type="text" id="loginUsername">
         </section>
-        <section class="input">
-            <label for="loginPassword"><span>Password</span></label>
+        <section class="inputDivision">
+            <label for="loginPassword">Password</label>
             <input type="password" id="loginPassword">
+        </section>
+
+        <section class="inputDivision">
+            <input type="submit" id="loginSubmit" value="Login">
         </section>
     </form>
 </body>
