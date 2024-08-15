@@ -8,26 +8,35 @@
     <title>Welcome</title>
 </head>
 <body>
-    <h1>Please login to enjoy the world of sound</h1>
+    <h1>Please register to enjoy the world of sound</h1>
+
     <form class="form">
         <p class="inputDivision" id="info"></p>
+
         <section class="inputDivision">
             <label for="username">Username</label>
             <input type="text" id="username">
         </section>
+
         <section class="inputDivision">
             <label for="password">Password</label>
             <input type="password" id="password">
         </section>
 
         <section class="inputDivision">
-            <button type="submit" id="submit">Login</button>
+            <label for="confirmPassword">Confirm password</label>
+            <input type="password" id="confirmPassword">
+        </section>
+        
+        <section class="inputDivision">
+            <button type="submit" id="submit">Register</button>
         </section>
     </form>
 
     <section>
-        <p>Dont have an account? <a href="register.html">Register</a></p>
+        <p>Have an account? <a href="login.html">Login</a></p>
     </section>
-    <script src="login.js"></script>
+
+    <script src="register.js"></script>
 </body>
 </html>
