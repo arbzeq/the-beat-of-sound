@@ -1,10 +1,67 @@
+
+body {
+    padding: 5vh;
+    display: flex;
+    flex-direction: column;
+    gap: 5vh;
+}
+
 header {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    border: 3px solid var(--dark-green);
+    padding: 3vh;
+    
     
     
     input {
-        width: 50%;
+        width: 70%;
+        font-size: 2rem;
     }
+}
+
+
+main {
+    padding: 5vh;
+    border: 1px solid var(--dark-green);
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    
+    .songContainer {
+        padding: 4vh;
+        border: 1px solid rgb(38, 41, 81);
+        border-radius: 1rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        
+        img {
+            height: 20vh;
+            text-align: center;
+            background-size: contain;
+        }
+
+        .playButton {
+            background: url("./assets/play-solid.svg");
+        }
+
+        .favoriteButton {
+            background: url("./assets/heart-empty.svg");
+        }
+
+        .songButtons {
+            background-position: center;
+            background-repeat: no-repeat;
+            width: 3rem;
+            height: 3rem;
+            &:hover {
+                cursor: pointer;
+            }
+        }
+        
+        
+    }
+
 }

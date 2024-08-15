@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="music.css">
+    <link rel="stylesheet" href="common.css">
     <title>Welcome</title>
 </head>
 <body>
@@ -14,14 +15,16 @@
     </header>
 
     <main>
-        <figure id="mainFigure">
-            <img id="mainImage">
-        </figure>
-        <section id="mainSection">
-            <h2 id="songtitle">Song of Fire</h2>
-            <button id="playPause">Play</button>
+        <section class="songContainer" id="songContainer1">
+            
+            <img class="mainImage">
+            
+            <h2 class="songtitle">Song of Fire</h2>
+            <a class="songButtons playButton"></a>
+            <a class="songButtons favoriteButton"></a>
+            
         </section>
-
+        
     </main>
 
     <script src="music.js"></script>
