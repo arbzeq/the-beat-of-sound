@@ -1,5 +1,19 @@
 window.addEventListener("load", () =>    {
-    insertSongToHTML();
+    let accounts = JSON.parse(localStorage.getItem("accounts"));
+    //getSongSamples();
+    //particularSong(665540);
+
+    let activeAccount = JSON.parse(localStorage.getItem("activeAccount"));
+
+    insertSongToHTML(activeAccount);
+    logout(accounts, activeAccount);
+
+    
+
+
+
+    
+    
 })
 
 function getSongSamples(){
@@ -34,8 +48,9 @@ function getSongSamples(){
     }
 }
 
-function particularSong(){
+function particularSong(songID){
     let data = JSON.parse(localStorage.getItem("testData"));
+    
     console.log(data);
     for(song of data){
         console.log(song);
@@ -59,14 +74,15 @@ function particularSong(){
     }
 
     console.log("The song");    
-    getSong(433767);
+    getSong(songID);
 }
 
-function insertSongToHTML() {
+function insertSongToHTML(activeAccount) {
     
     let main = document.querySelector("main");
 
     let song = JSON.parse(localStorage.getItem("testSong"));
+
 
     let songContainer = document.createElement("section");
     songContainer.classList.add("songContainer");
@@ -78,12 +94,69 @@ function insertSongToHTML() {
     let playButton = document.createElement("a");
     playButton.classList.add("songButtons", "playButton");
     let favoriteButton = document.createElement("a");
-    favoriteButton.classList.add("songButtons", "favoriteButton");
+    favoriteButton.classList.add("songButtons");
+    favoriteButton.addEventListener("click", (event) => {
+        console.log(event);
 
+        favoriteButtonState(activeAccount, song, event.target, true);
+    })
+    
+    
     songContainer.appendChild(image);
     songContainer.appendChild(h2);
     songContainer.appendChild(playButton);
     songContainer.appendChild(favoriteButton);
-
+    
     main.appendChild(songContainer);
+
+    favoriteButtonState(activeAccount, song, favoriteButton, false);
+    
 }
+
+function favoriteButtonState(activeAccount, song, favoriteButton, clicked) {
+    debugger;
+    let favoriteSongIDs = activeAccount["favoriteSongIDs"];
+    let isFavorite = false;
+    let favoriteIndex;
+    let songID = song["id"];
+
+    for(let i = 0; i<favoriteSongIDs.length; i++){
+        if(favoriteSongIDs[i] == songID){
+            isFavorite = true;
+            favoriteIndex = i;
+        }
+    }
+    
+    
+    if(clicked){
+        if(isFavorite){
+            favoriteSongIDs = favoriteSongIDs.splice(favoriteIndex, 1);
+            isFavorite = false;
+        }else{
+            favoriteSongIDs.push(songID);
+            isFavorite = true;
+        }
+        activeAccount["favoriteSongIDs"] = favoriteSongIDs;
+        localStorage.setItem("activeAccount", JSON.stringify(activeAccount));
+    }
+
+    if(isFavorite){
+        favoriteButton.classList.add("isFavorite");
+        favoriteButton.classList.remove("isNotFavorite");
+    }else{
+        favoriteButton.classList.add("isNotFavorite");
+        favoriteButton.classList.remove("isFavorite");
+    }
+    
+}
+
+function logout(accounts, activeAccount){
+    let logoutLink = document.querySelector("#logoutLink");
+    logoutLink.addEventListener("click", () => {
+        accounts.push(activeAccount);
+        localStorage.setItem("accounts", JSON.stringify(accounts));
+        localStorage.removeItem("activeAccount");
+        location.href = "login.html";
+    })
+}
+

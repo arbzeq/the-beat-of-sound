@@ -32,7 +32,8 @@ window.addEventListener("load", () => {
 
             let newAccount = {
                 "username": username,
-                "password": password
+                "password": password,
+                "favoriteSongIDs": []
             };
 
             

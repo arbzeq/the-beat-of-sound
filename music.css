@@ -1,5 +1,6 @@
 
 body {
+    /*background-color: rgb(70, 59, 0);*/
     padding: 5vh;
     display: flex;
     flex-direction: column;
@@ -47,7 +48,11 @@ main {
             background: url("./assets/play-solid.svg");
         }
 
-        .favoriteButton {
+        .isFavorite {
+            background: url("./assets/heart-filled.svg");
+        }
+
+        .isNotFavorite {
             background: url("./assets/heart-empty.svg");
         }
 

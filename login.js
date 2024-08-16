@@ -29,10 +29,13 @@ window.addEventListener("load", () => {
             }
             
             let userAccount = null;
-            for(let account of accounts) {
+            let accountIndex = 0;
+            for(let i = 0; i<accounts.length; i++) {
+                let account =accounts[i];
                 console.log(account);
                 if(username == account["username"]){
                     userAccount = account;
+                    accountIndex = i;
                 }
             };
 
@@ -40,8 +43,9 @@ window.addEventListener("load", () => {
                 console.log("Useraccount", userAccount);
                 if(password == userAccount["password"]){
                     localStorage.setItem("activeAccount", JSON.stringify(userAccount));
-                    location.href = ""
-                    
+                    accounts.splice(accountIndex, 1);
+                    localStorage.setItem("accounts", JSON.stringify(accounts));
+            
                 }else{
                     throw new Error("Wrong password.")
                 }
@@ -49,8 +53,7 @@ window.addEventListener("load", () => {
                 throw new Error("Username does not exist.")
             }
 
-           
-            //throw new Error("Something went wrong, try again.")
+            location.href = "music.html"
         }catch(errorMessage){
             console.log(errorMessage);
             info.textContent = errorMessage;
